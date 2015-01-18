@@ -27,14 +27,8 @@ cd schedule-tool
 
 ### Git
 
-Set up your Git config settings to match your github credentials:
+Set up your Github settings to set up a SSH key.:
 
-```
-$ git config --global user.name <MY-NAME>
-$ git config --global user.email <name@email.co.uk>
-
-$ git config --global credential.helper osxkeychain
-```
 See the notes for setting up SSH keys for this.
 
 
