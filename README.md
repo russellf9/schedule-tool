@@ -27,7 +27,14 @@ cd schedule-tool
 
 ### Git
 
+Set up your Git config settings to match your github credentials:
+
+```
+$ git config --global user.name <MY-NAME>
+$ git config --global user.email <name@email.co.uk>
+
 $ git config --global credential.helper osxkeychain
+```
 
 ### Install Dependencies
 
