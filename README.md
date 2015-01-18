@@ -35,6 +35,8 @@ $ git config --global user.email <name@email.co.uk>
 
 $ git config --global credential.helper osxkeychain
 ```
+See the notes for setting up SSH keys for this.
+
 
 ### Install Dependencies
 
