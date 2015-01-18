@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" id="ng-app" ng-app="schedule" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" id="ng-app" ng-app="schedule" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" id="ng-app" ng-app="schedule" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" id="ng-app" ng-app="schedule" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Campaign Planner</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/vendor.css">
+
+  <link rel="stylesheet" href="css/site.css">
+
+  <script src="js/modernizr.js"></script>
+
+  <script charset="utf-8" src="https://ucarecdn.com/widget/1.3.1/uploadcare/uploadcare-1.3.1.min.js"></script>
+</head>
+
+<body id="theBody" ng-controller="globalFuncs">
+  
+  <div class="logo pull-left">
+    <a href="#/home"><img ng-src="img/tms.gif" /></a></div>
+  <ul class="nav nav-tabs" role="tablist">
+    <li><a href="#/project" ng-class="getClass('project')">Projects</a></li>
+    <li><a href="#/product_category" ng-class="getClass('product_category')" edit-mode>Product/Category</a></li>
+    <li><a href="#/artwork" ng-class="getClass('artwork')" edit-mode>Final artwork</a></li>
+    <li><a href="#/asset" ng-class="getClass('asset')" edit-mode>Assets</a></li>
+
+    <span class="pull-right" ng-cloak>
+      <a style="margin-top: 5px; margin-right: 5px" class="btn btn-default btn-sm" id="edit-mode" edit-button>Edit Mode <i ng-show="editMode" class="glyphicon glyphicon-edit"></i></a>
+    </span>
+  </ul>
+
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <div ng-view class="container-fluid" id="view-container"></div>
+
+  <script src="js/vendor.js"></script>
+
+
+  <script src="js/app.js"></script>
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-57277979-1', 'auto');
+    //ga('send', 'pageview');
+  </script>
+
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      // check cookie
+      var visited = $.cookie("visited");
+
+      if (visited == null) {
+        $.cookie('visited', 'yes');
+      }
+
+      // set cookie
+      $.cookie('visited', 'yes', { expires: 365, path: '/' });
+
+      $.cookie('edit', 'false', { expires: 365, path: '/' });
+
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<div class="screens" ng-repeat="c in project.configurations track by $index" ng-init="configIndex = $index">
+    <h4>{{ ::c.screens.length}} {{::c.name}} {{::c.display_orientation ? c.orientation : ''}} <span class="pull-right"><a ng-click="active =!active"><i class="glyphicon" ng-class="active ? 'glyphicon-minus' : 'glyphicon-plus'"></i></a></span></h4>
+
+    <div class="row" ng-if="active">
+        <!--<div class="col-md-2">-->
+        <!--<h5 ng-if="false">Notes:</h5>-->
+        <!--<div ng-if="false" class="truncate {{::c.orientation}} configNotes">{{::c.notes}}</div>-->
+
+        <!--<button class="btn btn-default btn-sm" role="button" ng-click="hideDayParts = !hideDayParts">-->
+        <!--<span ng-if="hideDayParts">Hide</span>-->
+        <!--<span ng-if="!hideDayParts">Show</span> day parts-->
+        <!--</button>-->
+        <!--</div>-->
+        <div class="col-md-12">
+            <!-- screen -->
+            <div class="truncate-config">
+                <div class="screen-repeater col-md-offset-1 col-md-11 {{:: c.orientation}}" ng-repeat="screen in c.screens">
+                    <div class="col-md-12 screenwrapper {{:: c.orientation}}">
+                        <!--&lt;!&ndash;{{screen}}&ndash;&gt; Here the screen is the `slot`-->
+                        <div>
+                            <div days slot=$index; config=configIndex; screen=screen; dates=dates; add-screen-fn="addScreen" artworks="artworks"
+                                 screen-is-disabled="evaluateScreenIsDisabled" get-screen-products="getScreenProducts" screens="screens" products="products"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

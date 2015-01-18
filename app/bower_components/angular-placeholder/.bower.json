@@ -1,0 +1,23 @@
+{
+  "name": "angular-placeholder",
+  "version": "1.1.0",
+  "main": "placeholder.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "angular": ">=1.1.5"
+  },
+  "homepage": "https://github.com/monospaced/angular-placeholder",
+  "_release": "1.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.1.0",
+    "commit": "7dbcefc4c0c0c6f91b9d2c422e81e3955563fc83"
+  },
+  "_source": "git://github.com/monospaced/angular-placeholder.git",
+  "_target": "~1.1.0",
+  "_originalSource": "angular-placeholder"
+}

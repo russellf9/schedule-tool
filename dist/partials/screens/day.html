@@ -1,0 +1,30 @@
+<div class="daypart-repeater row col-md-12">
+
+
+	<!-- NOTE - this will have to go somewhere else -->
+	<!--<screen-part id="{{screen.id}}" project="project"></screen-part>-->
+
+	<!--<div ng-repeat="day in screen.days" class="singleday col-md-12">-->
+		<!--&lt;!&ndash; If the `Screen` is to be `Run Daily`, it will have a `date` which is a string with the value 'daily`-->
+			<!--otherwise each screen will have the date on which it is to be shown.-->
+		 <!--&ndash;&gt;-->
+		<!--<h6 class="daily" ng-if="day.date!=='daily'">{{day.date | momentDateFilter }}</h6>-->
+		<!--<h6 class="daily" ng-if="day.date==='daily'">{{day.date}}</h6>-->
+		<!--<div ng-repeat="day_part in day.day_parts" class="col-md-12 dayparts">-->
+			<!--&lt;!&ndash; If the `Day Part` is from a screen which is `Run Daily`, it will have a `startTime` and an `endTime`-->
+				<!--otherwise, if a screen will have a `time` which will be a string either 'breakfast` or `mainday`-->
+			<!--&ndash;&gt;-->
+			<!--<h6 class="timeslot">{{day_part.time}}</h6>-->
+			<!--<h6 class="timeslot" ng-if="day.day_parts.length>1">{{day_part.startTime}} - {{$last ? 'end' : day_part.endTime}}</h6>-->
+
+			<!--<div class="col-md-12 daypart row">-->
+				<!--<div class="form-group">-->
+					<!--<select id="artwork_day" ng-model="day_part.artwork_id" ng-change="day_part.$save(artwork_id)" ng-options="a.id as a.name for a in artworks | filter:{deleted:'!true'}">-->
+						<!--<option value="">Select artwork</option>-->
+					<!--</select>-->
+					<!--<input type="text" class="form-control" placeholder="screen code" ng-model="artworks.$getRecord(day_part.artwork_id).screen_code" ng-change="artworks.$save(artworks.$getRecord(day_part.artwork_id))"/>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</div>-->
+</div>

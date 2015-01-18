@@ -1,0 +1,10 @@
+<!-- TO BE USED IN THE DIRECTIVE -->
+<div class="form-group form-group-sm">
+    <label for="product" class="col-sm-2 control-label">Product {{index+1}}</label>
+    <div class="col-sm-10">
+        <p>Test: {{theProduct}}</p>
+        <select id="product" name="product" class="form-control" ng-model="theProduct" ng-change="saveSelect(3)" ng-options="p.id as p.name for p in productsArr | filter:{deleted:'!true'}">
+            <option value="">Select product</option>
+        </select>
+    </div>
+</div>

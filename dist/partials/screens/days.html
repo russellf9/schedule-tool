@@ -1,0 +1,41 @@
+<div class="daypart-repeater row">
+    <div ng-repeat="date in screen.days track by $index" class="col-md-12 singleday single-day-parts" ng-init="day = $index">
+        <h6 class="daily">{{getDate(day) | momentDateFilter}}</h6>
+
+        <div ng-repeat="day_part in date.day_parts track by $index" class="col-md-12 screenwrapper-force day_part">
+            <p class="day-part-time">{{day_part.time_slot}}</p>
+
+            <div class="col-md-12 screen" ng-style="{'opacity' : isDisabled(day_part.screen, day, slot, $index, config) ? '0.5' : '1'}">
+                <!-- Screen products has a lower opacity, if the screen is disabled -->
+                <div class="col-md-12 products" >
+                    <product-display screen={{day_part.screen}} screens="screens" fn="getScreenProducts()"></product-display>
+                </div>
+                <!-- If no screen is present display the add button -->
+                <a ng-if="!day_part.screen || day_part.screen === ''"
+                   ng-click="addScreen(day, slot, $index, config)" class="editscreen">
+                    <div class="glyphicon glyphicon-plus"></div>
+                </a>
+                <!-- If a screen is present display the link button, also, if disabled lower the opacity -->
+                <a ng-if="day_part.screen && day_part.screen !== ''" ng-href="#/screen/{{day_part.screen}}"
+                   class="editscreen" a-disabled
+                   disabled="isDisabled(day_part.screen, day, slot, $index, config)">
+                    <div class="glyphicon glyphicon-pencil" ng-style="{'cursor' : isDisabled(day_part.screen, day, slot, $index, config) ? 'default' : 'pointer',
+                    'opacity' : isDisabled(day_part.screen, day, slot, $index, config) ? '0.5' : '1'}"></div>
+                </a>
+            </div>
+
+            <!-- Only select the artwork if the screen is present and `selectable` -->
+            <div ng-if="day_part.screen && !isDisabled(day_part.screen, day, slot, $index, config)" class="col-md-12 daypart row">
+                <div class="form-group">
+                    <select id="artwork_day" ng-model="day_part.artwork_id" ng-change="day_part.$save(artwork_id)"
+                            ng-options="a.id as a.name for a in artworks | filter:{deleted:'!true'}">
+                        <option value="">Select artwork</option>
+                    </select>
+                    <input type="text" class="form-control" placeholder="screen code"
+                           ng-model="artworks.$getRecord(day_part.artwork_id).screen_code"
+                           ng-change="artworks.$save(artworks.$getRecord(day_part.artwork_id))"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

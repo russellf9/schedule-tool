@@ -1,0 +1,11 @@
+<div class="panel-info detail panel" ng-class="{'col-md-8 panelShrink': editmode}">
+	<div class="panel-heading"><h4>{{product_category.name}}
+		<archived the-style="archived-product" deleted="product_category.deleted" ></archived>
+		</h4>
+	</div>
+	<!-- utilities bar -->
+	<div class="project-util panel-footer">
+		<a href="#/product_category/view/{{product_category.id}}" class="btn btn-default btn-sm" role="button" ng-show="editmode!=true">View</a>
+		<a href="#/product_category/edit/{{product_category.id}}/" class="btn btn-default btn-sm" role="button" edit-mode>Edit</a>
+	</div>
+</div>

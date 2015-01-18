@@ -1,0 +1,33 @@
+<div class="panel-warning detail panel" ng-class="{'col-md-8 panelShrink': editmode}">
+			<div class="panel-heading"><h4>{{asset.name}}
+				<archived the-style="archived-asset" deleted="asset.deleted" ></archived>
+				</h4>
+			</div>
+			<div class="panel-body">
+				<div class="col-sm-6">
+					<ul class="project-info list-group">
+						<li class="list-group-item">Created: <span class="label label-success pull-right">{{asset.date_create | date:'EEE: yyyy-MM-dd'}}</span><li>
+						<li class="list-group-item">Path: <span class="pull-right truncate-text">{{asset.path}}</span><li>
+						<li class="list-group-item">Main product/cat: <a class="pull-right" href="#/product_category/view/{{asset.product_category}}" ng-style="{'color' : products.$getRecord(asset.product_category).deleted ? '#F33' : ''}">{{products.$getRecord(asset.product_category).name}} {{products.$getRecord(asset.product_category).deleted ? '- Archived' :''}}</a><li>
+						<li ng-repeat="artwork in artworksEls">
+							<ul class="col-md-12 artworkList">
+								<li class="list-group-item" ? ng-repeat="a in artwork.assets track by $index" ng-hide="a!=asset.id">
+										<div>Assoc artwork:<a href="#/artwork/view/{{artwork.id}}" class="pull-right" ng-style="{'color' : artwork.deleted ? '#F33' : ''}">{{artwork.name}} {{artwork.deleted ? '- Archived' :''}}</a></div>
+								</li>
+							</ul>
+						<li>
+					</ul>
+				</div>
+
+				<div class="project-info col-sm-6">
+					<h5>Notes:</h5>
+					<div class="truncate" ng-bind-html="asset.notes | nl2br | sanitize"></div>
+				</div>				
+			</div>
+			
+			<!-- utilities bar -->
+			<div class="project-util panel-footer">
+				<a href="#/asset/view/{{asset.id}}" class="btn btn-default btn-sm" role="button" ng-show="editmode!=true">View</a>
+				<a href="#/asset/edit/{{asset.id}}" class="btn btn-default btn-sm" role="button" edit-mode>Edit</a>
+			</div>
+</div>

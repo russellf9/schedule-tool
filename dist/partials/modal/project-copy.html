@@ -1,0 +1,31 @@
+<div >
+    <div class="modal-header dialog-header-error">
+        <h3 class="modal-title"><span class="glyphicon glyphicon-calendar"></span> Copy</h3>
+    </div>
+    <div class="modal-body">
+        <h4 class="modal-title">Select a new start date for the project.</h4>
+
+
+        <div class="form-group form-group-sm">
+            <label for="date_live" class="col-sm-2 control-label">Live date</label>
+
+            <!-- update-fn="updateDate"-->
+            <p class="input-group col-sm-4">
+                <input date-input style="margin-left:15px;"
+                       class="form-control" datepicker-popup="{{format}}"  ctrl-fn="openModal" ng-model="dt_start_string" init-date="dt_start" name="dt_start"
+                       is-open="datepickers.dt_start" min-date="minDate" max-date="'2099-12-31'"
+                       datepicker-options="startDateOptions" date-disabled="disabled(date, mode)" ng-required="true"
+                       close-text="Close" show-button-bar="false" readonly>
+				<span class="input-group-btn">
+                    <date-button method="open" type="dt_start"></date-button>
+				</span>
+            </p>
+        </div>
+
+
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+    </div>
+</div>

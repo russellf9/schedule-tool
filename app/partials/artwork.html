@@ -1,0 +1,33 @@
+<div class="panel-success detail panel" ng-class="{'col-md-8 panelShrink': editmode}" ng-cloak>
+    <div class="panel-heading"><h4>{{artwork.name}} {{artwork.stitched === 'yes' ? '[stitched]': ''}} <archived the-style="archived-artwork" deleted="artwork.deleted" ></archived></h4></div>
+    <div class="panel-body">
+        <div class="col-sm-6">
+            <ul class="project-info list-group">
+                <li class="list-group-item">Created: <span class="label label-success pull-right">{{artwork.date_create | date:'EEE: yyyy-MM-dd'}}</span>
+                <li>
+                <li class="list-group-item">Path: <span class="pull-right truncate-text">{{artwork.path}}</span>
+                <li>
+                <li class="list-group-item">Screen code: <span class="pull-right">{{artwork.screen_code}}</span>
+                <li>
+
+                <!-- for asset -->
+                <li ng-if="artwork.stitched !== 'yes'" class="list-group-item" ng-repeat="asset in artwork.assets track by $index"asset-link index="$index + 1" item=asset type="asset" records="assetArr">
+                </li>
+
+                <!-- for artwork -->
+                <li ng-if="artwork.stitched === 'yes'" class="list-group-item" ng-repeat="asset in artwork.assets track by $index"asset-link index="$index + 1" item=asset type="artwork" records="artworkArr">
+                </li>
+            </ul>
+        </div>
+        <div class="project-info col-sm-6">
+            <h5>Notes:</h5>
+            <div class="truncate" ng-bind-html="artwork.notes | nl2br | sanitize"></div>
+        </div>
+    </div>
+
+    <!-- utilities bar -->
+    <div class="project-util panel-footer">
+        <a href="#/artwork/view/{{artwork.id}}" class="btn btn-default btn-sm" role="button" ng-show="editmode!=true">View</a>
+        <a href="#/artwork/edit/{{artwork.id}}" class="btn btn-default btn-sm" role="button" edit-mode>Edit</a>
+    </div>
+</div>

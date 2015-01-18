@@ -1,0 +1,118 @@
+<div class="container-fluid">
+<form novalidate class="simple-form css-form" ng-cloak>
+	<div class="col-md-6 form-horizontal">
+		<screen-title name="{{configArr.name}}" project="project" orientation={{configArr.orientation}} id="{{thisscreen.$id}}" screens="configArr.screens"></screen-title>
+
+		<p>Test id: {{thisscreen.$id}}</p>
+
+		<div class="form-group form-group-sm">
+			<label for="repeat" class="col-sm-2 control-label">Repeat</label>
+			<div class="col-sm-6">
+				<select id="repeat" name="repeat" class="form-control" ng-model="thisscreen.repeat" ng-change="saveRepeatScreen()">
+					<option value="">Select Repeat Type</option>
+					<option value="today">Today Only</option>
+					<option value="daily">Daily</option>
+					<option value="weekly">Weekly</option>
+				</select>
+			</div>
+		</div>
+
+
+		<div class="form-group form-group-sm">
+			<label for="path" class="col-sm-2 control-label">Select Day parts</label>
+			<div class="col-sm-8 screenRadio">
+				<!--<input type="checkbox" ng-model="thisscreen.day_parts[0]" value="mainday" id="mainday" ng-change="updateDayParts(0)">-->
+				<!--<label for="mainday">5:00 - 10:30</label>-->
+				<span ng-repeat="time in times">
+					<div class="col-sm-8 screenRadio">
+						<input type="checkbox" ng-model="thisscreen.day_parts[$index]" value="mainday" id="time" ng-change="updateDayParts($index)">
+						<label for="time">{{time}}</label>
+					</div>
+				</span>
+
+			</div>
+		</div>
+
+		<!--<div class="form-group form-group-sm">-->
+			<!--<label for="path" class="col-sm-2 control-label">Day parts</label>-->
+			<!--<div class="col-sm-10 screenRadio">-->
+				<!--<input type="radio" ng-model="thisscreen.day_type" value="mainday" id="mainday" ng-change="saveDayType()">-->
+				<!--<label for="mainday">Mainday</label>-->
+				<!--<input type="radio" ng-model="thisscreen.day_type"  value="breakfast" id="breakfast" ng-change="saveDayType()">-->
+				<!--<label for="breakfast">Breakfast</label>-->
+				<!--<input type="radio" ng-model="thisscreen.day_type" value="all" id="all" ng-change="saveDayType()">-->
+				<!--<label for="all">All 6 slots</label>				-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<div class="form-group form-group-sm">
+			<label for="thisscreen1" class="col-sm-2 control-label">Product 1</label>
+			<div class="col-sm-10">
+				<select id="thisscreen1" name="thisscreen[]" class="form-control" ng-model="thisscreen.screen_products[0]" ng-change="saveSelect(0)" ng-options="p.id as p.name for p in productsArr | filter:{deleted:'!true'} | arrayWithoutSelf:p.$id">
+				<option value="">Select product</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group form-group-sm">
+			<label for="thisscreen2" class="col-sm-2 control-label">Product 2</label>
+			<div class="col-sm-10">
+				<select id="thisscreen1" name="thisscreen[]" class="form-control" ng-model="thisscreen.screen_products[1]" ng-change="saveSelect(1)" ng-options="p.id as p.name for p in productsArr | filter:{deleted:'!true'} | arrayWithoutSelf:p.$id">
+				<option value="">Select product</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group form-group-sm">
+			<label for="thisscreen3" class="col-sm-2 control-label">Product 3</label>
+			<div class="col-sm-10">
+				<select id="thisscreen1" name="thisscreen[]" class="form-control" ng-model="thisscreen.screen_products[2]" ng-change="saveSelect(2)" ng-options="p.id as p.name for p in productsArr | filter:{deleted:'!true'} | arrayWithoutSelf:p.$id">
+				<option value="">Select product</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group form-group-sm">
+			<label for="thisscreen4" class="col-sm-2 control-label">Product 4</label>
+			<div class="col-sm-10">
+				<select id="thisscreen4" name="thisscreen[]" class="form-control" ng-model="thisscreen.screen_products[3]" ng-change="saveSelect(3)" ng-options="p.id as p.name for p in productsArr | filter:{deleted:'!true'} | arrayWithoutSelf:p.$id">
+				<option value="">Select product</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group form-group-sm">
+			<label for="thisscreen4" class="col-sm-2 control-label">Product 5</label>
+			<div class="col-sm-10">
+				<select id="thisscreen5" name="thisscreen[]" class="form-control" ng-model="thisscreen.screen_products[4]" ng-change="saveSelect(4)" ng-options="p.id as p.name for p in productsArr | filter:{deleted:'!true'} | arrayWithoutSelf:p.$id">
+					<option value="">Select product</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group form-group-sm">
+			<label for="thisscreen4" class="col-sm-2 control-label">Product 6</label>
+			<div class="col-sm-10">
+				<select id="thisscreen6" name="thisscreen[]" class="form-control" ng-model="thisscreen.screen_products[5]" ng-change="saveSelect(5)" ng-options="p.id as p.name for p in productsArr | filter:{deleted:'!true'} | arrayWithoutSelf:p.$id">
+					<option value="">Select product</option>
+				</select>
+			</div>
+		</div>
+
+
+		<!-- NOTES - HIDE FOR NOW-->
+		<div class="form-group form-group-sm" ng-if="false">
+			<label for="notes" class="col-sm-2 control-label">Notes</label>
+			<div class="col-sm-10">
+				<textarea id="notes" class="form-control" ng-model="configArr.notes" ng-change="configArr.$save(notes)" ng-required>{{configArr.notes}}</textarea>
+			</div>
+		</div>
+
+
+		<div class="form-group form-group-sm">
+			<div class="col-sm-10 pull-right">
+				<a class="btn btn-default btn-sm" back-button role="button">Back</a>
+			</div>
+		</div>
+
+
+
+		
+	</div>
+	</form>
+</div>

@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  
+	<!-- query form -->
+	<div class="col-md-3 form-horizontal">
+		<div class="form-group form-group-sm">
+			<label for="search" class="col-sm-4 control-label">Search</label>
+			<div class="col-sm-8">
+				<input type="text" id="search" class="form-control" placeholder="product/category name" ng-model="query" autocomplete="off">
+			</div>
+		</div>
+		
+		<div class="form-group form-group-sm">
+			<label for="sort_by" class="col-sm-4 control-label">Sort By</label>
+			<div class="col-sm-8">
+				<select ng-model="orderProp" class="form-control" id="sort_by">
+					<option value="name">Product/Category name asc</option>
+					<option value="-name">Product/Category name desc</option>
+					<option value="date_start">Date asc</option>
+					<option value="-date_start">Date desc</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="form-group form-group-sm">
+			<label for="archived" class="col-sm-4 control-label">Archived</label>
+			<div class="col-sm-8">
+				<checkbox id="archived" name="archived" ng-model="deletedFilter" class="btn-normal checkbox-form-control"></checkbox>
+			</div>
+		</div>	
+		
+		<div class="form-group form-group-sm">
+			<div class="col-sm-8 pull-right">
+				<a href="#/product_category/add" id="add" class="btn btn-default btn-sm" role="button" edit-mode>ADD</a>
+			</div>
+		</div>
+		
+	</div>
+	<!-- /query form -->
+    
+	<ul class="project-list col-md-8">
+		<li ng-repeat="product_category in product_categorys | objectKeyContainsVal:'name':query | objectByKeyValFilter:'deleted':!deletedFilter | orderObjectBy:orderProp" class="panel-info">
+			<ng-include src="'partials/product_category.html'"></ng-include>
+		</li>
+	</ul>
+	
+</div>

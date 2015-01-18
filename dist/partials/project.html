@@ -1,0 +1,39 @@
+<div class="project-detail col-md-10" ng-cloak>
+	<!-- top-level info -->
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3>{{project.name}}
+				<archived the-style="archived-project" deleted="project.deleted" ></archived>
+			</h3>
+		</div>
+		<div class="panel-body">
+			<ul class="project-info col-md-6 list-group">
+				<li class="list-group-item">Live date<span class="label label-success pull-right">{{project.date_start | date:'EEE: yyyy-MM-dd'}}</span><li>
+				<li class="list-group-item">End date<span class="label label-danger pull-right">{{project.date_end | date:'EEE: yyyy-MM-dd'}}</span><li>
+				<!-- li class="list-group-item">Creator<span class="label label-default pull-right">{{project.user_created_id}}</span><li -->
+				<!-- li class="list-group-item">Last modified<span class="label label-default pull-right">{{project.date_modified | date:'yyyy-MM-dd'}}</span><li -->
+				<deliverables project="project"></deliverables>
+
+				<screen-codes project="project"></screen-codes>
+			</ul>
+	
+			<div class="project-info col-md-6">
+				<h5>Notes:</h5>
+				<!--ng-bind-html="project.notes | nl2br"-->
+				<div class="truncate" ng-bind-html="project.notes | nl2br | sanitize "></div>
+			</div>
+		</div>
+		<!-- utilities bar -->
+		<div class="project-util panel-footer">
+			<a href="#/project/edit/{{project.id}}" class="btn btn-default btn-sm" role="button" edit-mode>Edit</a>
+			<!--TEST FOR THE CSV EXPORT-->
+			<!--<button ng-csv="getArray" filename="my-name.csv" class="btn btn-default btn-sm" role="button">Export</button>-->
+			<!-- a href="">Duplicate</a -->
+		</div><!-- /utilities bar -->
+	</div>
+	<!-- /top-level info -->
+	<blueprint></blueprint>
+
+</div>
+<!-- end project-detail -->
+

@@ -1,0 +1,85 @@
+<div class="container-fluid" ng-cloak>
+    <form novalidate class="simple-form css-form">
+        <div class="col-md-6 form-horizontal">
+            <h3 ng-if="editmode == false && !copymode">Create new project</h3>
+            <h3 ng-if="editmode == true">Edit project</h3>
+            <h3 ng-if="copymode == true">Copy project</h3>
+
+
+            <div class="form-group form-group-sm">
+                <label for="name" class="col-sm-2 control-label">Name</label>
+
+                <div ng-if="!copymode" class="col-sm-10">
+                    <input autocomplete="off" type="text" id="name" class="form-control projectname" placeholder="project name"
+                           ng-model="project.name" ng-change="project.$save(name)" required>
+                </div>
+                <div ng-if="copymode" class="col-sm-10">
+                    <input autocomplete="off" type="text" id="name-copy" class="form-control projectname" placeholder="project name"
+                           ng-model="project.name" required>
+                </div>
+            </div>
+
+            <div class="form-group form-group-sm">
+                <label for="date_live" class="col-sm-2 control-label">Live date</label>
+
+                <p class="input-group col-sm-4">
+                    <input date-input style="margin-left:15px;" ctrl-fn="openModal" update-fn="updateDate"
+                           class="form-control" datepicker-popup="{{format}}"  ng-model="dt_start_string" init-date="dt_start" name="dt_start"
+                           is-open="datepickers.dt_start" min-date="minDate" max-date="'2099-12-31'"
+                           datepicker-options="startDateOptions" date-disabled="disabled(date, mode)" ng-required="true"
+                           close-text="Close" show-button-bar="false" readonly>
+				<span class="input-group-btn">
+                    <date-button method="open" type="dt_start"></date-button>
+				</span>
+                </p>
+            </div>
+
+
+            <div class="form-group form-group-sm" ng-if="!copymode">
+                <label for="date_end" class="col-sm-2 control-label">End date</label>
+
+                <p class="input-group col-sm-4">
+                    <input date-input  ctrl-fn="openModal" update-fn="updateDate" style="margin-left:15px;" class="form-control"
+                           datepicker-popup="{{format}}" ng-model="dt_end_string" name="dt_end" is-open="datepickers.dt_end"
+                           min-date="'1999-12-31'" max-date="'2099-12-31'" datepicker-options="dateOptions"
+                           date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"
+                           show-button-bar="false"  readonly>
+				<span class="input-group-btn">
+					<date-button method="open" type="dt_end"></date-button>
+				</span>
+                </p>
+            </div>
+            <div class="form-group form-group-sm">
+                <label for="notes" class="col-sm-2 control-label">Notes</label>
+
+                <div class="col-sm-10">
+                    <textarea id="notes" name="notes" class="form-control" ng-model="project.notes"
+                              ng-change="project.$save(notes)">{{project.notes}}</textarea>
+                </div>
+            </div>
+            <div class="form-group form-group-sm" ng-show="editmode == true">
+                <label for="archived" class="col-sm-2 control-label">Archived</label>
+
+                <div class="col-sm-10">
+                    <checkbox id="archived" ng-model="project.deleted" class="btn-normal checkbox-form-control"
+                              ng-change="project.$save(deleted)"></checkbox>
+                </div>
+            </div>
+
+            <div class="form-group form-group-sm">
+                <div class="col-sm-10 pull-right" ng-show="editmode == false && copymode == false">
+                    <button class="btn btn-default btn-sm" id="create" role="button" ng-click="create(project)"
+                            type="submit" ng-disabled="!project.name || loading">Create
+                    </button>
+                </div>
+                <div class="col-sm-10 pull-right" ng-show="editmode == true || copymode == true">
+                    <a ng-if="editmode" class="btn btn-default btn-sm" href="#/project/view/{{project.id}}" role="button">View</a>
+                    <button class="btn btn-default btn-sm" id="copy" role="button" ng-click="create(project, 1);" type="submit" ng-disabled="loading">
+                        Copy
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>

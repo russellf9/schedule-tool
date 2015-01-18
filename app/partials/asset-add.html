@@ -1,0 +1,55 @@
+<div class="container-fluid">
+<form novalidate class="simple-form css-form">
+	<div class="col-md-6 form-horizontal">
+		<h3 ng-show="editmode == false">Create asset</h3>
+		<h3 ng-show="editmode == true">Edit asset</h3>
+		<div class="form-group form-group-sm">
+			<label for="name" class="col-sm-2 control-label">Name</label>
+			<div class="col-sm-10">
+				<input autocomplete="off" type="text" id="name" class="form-control projectname" placeholder="asset name" ng-model="asset.name" ng-change="asset.$save(name)" required>
+			</div>
+		</div>
+		<div class="form-group form-group-sm">
+			<label for="path" class="col-sm-2 control-label">Path</label>
+			<div class="col-sm-10">
+				<input autocomplete="off" type="text" id="path" class="form-control projectname" placeholder="smb://london12/" ng-model="asset.path" ng-change="asset.$save(path)">
+			</div>
+		</div>
+		<div class="form-group form-group-sm">
+			<label for="product_category" class="col-sm-2 control-label">Main product/Cat</label>
+			<div class="col-sm-10">
+				<select id="product_category" class="form-control" ng-model="asset.product_category" ng-change="asset.$save(product_category)" ng-options="a.id as a.name for a in products | filter:{deleted:'!true'} | nullFilter:a">
+				<option value="">Select product</option>
+				</select>
+			</div>
+		</div>
+				
+		<div class="form-group form-group-sm">
+			<label for="notes" class="col-sm-2 control-label">Notes</label>
+			<div class="col-sm-10">
+				<textarea id="notes" class="form-control" ng-model="asset.notes" ng-change="asset.$save(notes)">{{asset.notes}}</textarea>
+			</div>
+		</div>
+		
+		<div class="form-group form-group-sm" ng-show="editmode == true">
+			<label for="archived" class="col-sm-2 control-label">Archived</label>
+			<div class="col-sm-10">
+				<checkbox id="deleted" name="deleted" ng-model="asset.deleted" class="btn-normal checkbox-form-control" ng-change="asset.$save(deleted)"></checkbox>
+			</div>
+		</div>	
+		
+		<div class="form-group form-group-sm">
+			<div class="col-sm-10 pull-right">
+				<button class="btn btn-default btn-sm" role="button" ng-click="create(asset)" ng-disabled="!asset.name" type="button" ng-show="editmode == false">Create</button>
+			</div>
+			<div class="col-sm-10 pull-right" ng-show="editmode == true">				
+				<a class="btn btn-default btn-sm" href="#/asset/view/{{asset.id}}" role="button">View</a>
+			</div>
+			<!-- div class="col-sm-10 pull-right" ng-show="editmode == true">
+				<a class="btn btn-default btn-sm" href="#/product_category/{{product_category.id}}" role="button">View</a>
+			</div -->
+		</div>
+		
+	</div>
+	</form>
+</div>

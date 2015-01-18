@@ -1,0 +1,6 @@
+.DS_Store
+.idea/D
+#app/bower_components/
+node_modules/angular-placeholder/
+.idea/
+.idea/workspace.xml

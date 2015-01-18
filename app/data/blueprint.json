@@ -1,0 +1,93 @@
+[
+  {
+    "name": "menuboard(s)",
+    "display_orientation": true,
+    "orientation": "landscape",
+    "notes": "",
+    "screens": []
+  },
+  {
+    "name": "menuboard(s)",
+    "display_orientation": true,
+    "orientation": "landscape",
+    "notes": ""
+  },
+  {
+    "name": "menuboard(s)",
+    "display_orientation": true,
+    "orientation": "portrait",
+    "notes": ""
+  },
+  {
+    "name": "menuboard(s)",
+    "display_orientation": true,
+    "orientation": "portrait",
+    "notes": ""
+  },
+  {
+    "name": "vestibule",
+    "display_orientation": false,
+    "orientation": "portrait",
+    "notes": ""
+  },
+  {
+    "name": "window(s) external",
+    "display_orientation": false,
+    "orientation": "portrait",
+    "notes": ""
+  },
+  {
+    "name": "window(s) internal",
+    "display_orientation": false,
+    "orientation": "portrait",
+    "notes": ""
+  },
+  {
+    "name": "window(s) external",
+    "display_orientation": false,
+    "orientation": "portrait",
+    "notes": ""
+  },
+  {
+    "name": "window(s) internal",
+    "display_orientation": false,
+    "orientation": "portrait",
+    "notes": ""
+  },
+  {
+    "name": "window(s) external",
+    "display_orientation": false,
+    "orientation": "portrait",
+    "notes": ""
+  },
+  {
+    "name": "window(s) internal",
+    "display_orientation": false,
+    "orientation": "portrait",
+    "notes": ""
+  },
+  {
+    "name": "McCafe",
+    "display_orientation": true,
+    "orientation": "portrait",
+    "notes": ""
+  },
+  {
+    "name": "McCafe",
+    "display_orientation": true,
+    "orientation": "landscape",
+    "notes": ""
+  },
+  {
+    "name": "Price menuboard",
+    "display_orientation": false,
+    "orientation": "portrait",
+    "notes": ""
+  },
+  {
+    "name": "Additional Screen",
+    "display_orientation": false,
+    "orientation": "landscape",
+    "notes": ""
+  }
+]

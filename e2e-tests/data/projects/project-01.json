@@ -1,0 +1,644 @@
+{
+  "configurations" : [ {
+    "display_orientation" : true,
+    "name" : "menuboard(s)",
+    "notes" : "My notes\n\nOK",
+    "orientation" : "landscape",
+    "screens" : [ {
+      "day_type" : "breakfast",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "breakfast"
+        } ]
+      } ],
+      "run_daily" : "no",
+      "screen_products" : [ "-JcyReoPslcDPU7rt0EU", "-JcyRV9blycxv6IUtnc7", null, null, null, "-JcyRV9blycxv6IUtnc7" ]
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no",
+      "screen_products" : [ "-JcyRcA_BGR_O9r4DN6N", null, "-JcyRcA_BGR_O9r4DN6N", null, "-JcyRV9blycxv6IUtnc7", "-JcyRV9blycxv6IUtnc7" ]
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "Sat Feb 14 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Sun Feb 15 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Mon Feb 16 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Tue Feb 17 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Wed Feb 18 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Thu Feb 19 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Fri Feb 20 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Sat Feb 21 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Sun Feb 22 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Mon Feb 23 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Tue Feb 24 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Wed Feb 25 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Thu Feb 26 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Fri Feb 27 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Sat Feb 28 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Sun Mar 01 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Mon Mar 02 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Tue Mar 03 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Wed Mar 04 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Thu Mar 05 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Fri Mar 06 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Sat Mar 07 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Sun Mar 08 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Mon Mar 09 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Tue Mar 10 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Wed Mar 11 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Thu Mar 12 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      }, {
+        "date" : "Fri Mar 13 2015 00:00:00 GMT+0000 (GMT)",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "yes",
+      "screen_products" : [ "-JcyRV9blycxv6IUtnc7", null, "-JcyRV9blycxv6IUtnc7" ]
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    } ]
+  }, {
+    "display_orientation" : true,
+    "name" : "menuboard(s)",
+    "notes" : "",
+    "orientation" : "landscape",
+    "screens" : [ {
+      "day_type" : "all",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "endTime" : "10:30",
+          "startTime" : "05:00"
+        }, {
+          "artwork_id" : "",
+          "endTime" : "11:30",
+          "startTime" : "10:30"
+        }, {
+          "artwork_id" : "",
+          "endTime" : "14:30",
+          "startTime" : "11:30"
+        }, {
+          "artwork_id" : "",
+          "endTime" : "16:00",
+          "startTime" : "14:30"
+        }, {
+          "artwork_id" : "",
+          "endTime" : "20:00",
+          "startTime" : "16:00"
+        }, {
+          "artwork_id" : "",
+          "endTime" : "05:00",
+          "startTime" : "20:00"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    } ]
+  }, {
+    "display_orientation" : true,
+    "name" : "menuboard(s)",
+    "notes" : "",
+    "orientation" : "portrait",
+    "screens" : [ {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    } ]
+  }, {
+    "display_orientation" : true,
+    "name" : "menuboard(s)",
+    "notes" : "",
+    "orientation" : "portrait",
+    "screens" : [ {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    } ]
+  }, {
+    "display_orientation" : false,
+    "name" : "vestibule",
+    "notes" : "",
+    "orientation" : "portrait",
+    "screens" : [ {
+      "day_type" : "breakfast",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "breakfast"
+        } ]
+      } ],
+      "run_daily" : "no",
+      "screen_products" : [ "-JcyRcA_BGR_O9r4DN6N" ]
+    } ]
+  }, {
+    "display_orientation" : false,
+    "name" : "window(s) external",
+    "notes" : "",
+    "orientation" : "portrait",
+    "screens" : [ {
+      "day_type" : "all",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "endTime" : "10:30",
+          "startTime" : "05:00"
+        }, {
+          "artwork_id" : "",
+          "endTime" : "11:30",
+          "startTime" : "10:30"
+        }, {
+          "artwork_id" : "",
+          "endTime" : "14:30",
+          "startTime" : "11:30"
+        }, {
+          "artwork_id" : "",
+          "endTime" : "16:00",
+          "startTime" : "14:30"
+        }, {
+          "artwork_id" : "",
+          "endTime" : "20:00",
+          "startTime" : "16:00"
+        }, {
+          "artwork_id" : "",
+          "endTime" : "05:00",
+          "startTime" : "20:00"
+        } ]
+      } ],
+      "run_daily" : "no",
+      "screen_products" : [ "-JcyReoPslcDPU7rt0EU", "-JcyRcA_BGR_O9r4DN6N", "-JcyRV9blycxv6IUtnc7" ]
+    } ]
+  }, {
+    "display_orientation" : false,
+    "name" : "window(s) internal",
+    "notes" : "",
+    "orientation" : "portrait",
+    "screens" : [ {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no",
+      "screen_products" : [ "-JcyRV9blycxv6IUtnc7" ]
+    } ]
+  }, {
+    "display_orientation" : false,
+    "name" : "window(s) external",
+    "notes" : "",
+    "orientation" : "portrait",
+    "screens" : [ {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    } ]
+  }, {
+    "display_orientation" : false,
+    "name" : "window(s) internal",
+    "notes" : "",
+    "orientation" : "portrait",
+    "screens" : [ {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    } ]
+  }, {
+    "display_orientation" : false,
+    "name" : "window(s) external",
+    "notes" : "",
+    "orientation" : "portrait",
+    "screens" : [ {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    } ]
+  }, {
+    "display_orientation" : false,
+    "name" : "window(s) internal",
+    "notes" : "",
+    "orientation" : "portrait",
+    "screens" : [ {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    }, {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    } ]
+  }, {
+    "display_orientation" : true,
+    "name" : "McCafe",
+    "notes" : "",
+    "orientation" : "portrait",
+    "screens" : [ {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    } ]
+  }, {
+    "display_orientation" : true,
+    "name" : "McCafe",
+    "notes" : "",
+    "orientation" : "landscape",
+    "screens" : [ {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    } ]
+  }, {
+    "display_orientation" : false,
+    "name" : "Price menuboard",
+    "notes" : "",
+    "orientation" : "portrait",
+    "screens" : [ {
+      "day_type" : "mainday",
+      "days" : [ {
+        "date" : "daily",
+        "day_parts" : [ {
+          "artwork_id" : "",
+          "time" : "mainday"
+        } ]
+      } ],
+      "run_daily" : "no"
+    } ]
+  } ],
+  "date_create" : 1418387061889,
+  "date_end" : 1426204800000,
+  "date_start" : 1423872000000,
+  "deleted" : false,
+  "id" : "-JcySEbqKifraosHk0zx",
+  "name" : "April food",
+  "notes" : "Includes - Grand Beef, McFlurry, Pie, Chicken legend with Bacon"
+}

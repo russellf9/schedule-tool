@@ -1,0 +1,146 @@
+<div class="container-fluid">
+<form novalidate class="simple-form css-form">
+	<div class="col-md-6 form-horizontal">
+		<h3 ng-show="editmode == false">Create artwork</h3>
+		<h3 ng-show="editmode == true">Edit artwork</h3>
+		
+		<div class="form-group form-group-sm">
+			<label for="name" class="col-sm-2 control-label">Name</label>
+			<div class="col-sm-10">
+				<input autocomplete="off" type="text" id="name" class="form-control projectname" placeholder="artwork name" ng-model="artwork.name" ng-change="artwork.$save(name)" required>
+			</div>
+		</div>
+		<div class="form-group form-group-sm">
+			<label for="path" class="col-sm-2 control-label">Path</label>
+			<div class="col-sm-10">
+				<input autocomplete="off" type="text" id="path" class="form-control projectname" placeholder="smb://london12/" ng-model="artwork.path" ng-change="artwork.$save(path)" required>
+			</div>
+		</div>
+		<div class="form-group form-group-sm">
+			<label for="screen_code" class="col-sm-2 control-label">Screen code</label>
+			<div class="col-sm-10">
+				<input autocomplete="off" type="text" id="screen_code" class="form-control projectname" placeholder="screen code" ng-model="artwork.screen_code" ng-change="artwork.$save(screen_code)">
+			</div>
+		</div>
+
+		<div class="form-group form-group-sm">
+			<label for="screen_code" class="col-sm-2 control-label">Stitched</label>
+
+			<div class="col-sm-10" ng-init="artwork.stitched='no'">
+				<input type="radio" ng-model="artwork.stitched" ng-change="toggleStitched(artwork)" id="yes" value="yes">
+				<label for="yes">Yes</label> <br >
+				<input type="radio" ng-model="artwork.stitched" ng-change="toggleStitched(artwork)" id="no" value="no">
+				<label for="no">No</label>
+			</div>
+		</div>
+
+		<!-- NOTE
+			To remove the disabling in the drop down:
+			1. remove the `ng-options-disabled` directive
+			2. replace with the ` | filter:{deleted:'!true'}` filter to remove those items completely from the list
+		-->
+
+		<span ng-if="artwork.stitched === 'yes'">
+			<div class="form-group form-group-sm">
+				<label for="artwork1" class="col-sm-2 control-label">Artwork 1</label>
+				<div class="col-sm-10">
+					<select id="artwork1" name="artwork1" class="form-control" ng-model="artwork.assets[0]" ng-change="saveSelect(0)" ng-options="a.id as a.name for a in artworkArr | arrayWithoutSelf:artwork.$id " ng-options-disabled="a.deleted == true for a in artworkArr">
+						<option value="">Select artwork</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group form-group-sm">
+				<label for="artwork2" class="col-sm-2 control-label">Artwork 2</label>
+				<div class="col-sm-10">
+					<select id="artwork2" name="artwork2" class="form-control" ng-model="artwork.assets[1]" ng-change="saveSelect(1)" ng-options="a.id as a.name for a in artworkArr | arrayWithoutSelf:artwork.$id" ng-options-disabled="a.deleted == true for a in artworkArr">
+						<option value="">Select artwork</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group form-group-sm">
+				<label for="artwork3" class="col-sm-2 control-label">Artwork 3</label>
+				<div class="col-sm-10">
+					<select id="artwork3" name="artwork3" class="form-control" ng-model="artwork.assets[2]" ng-change="saveSelect(2)" ng-options="a.id as a.name for a in artworkArr | arrayWithoutSelf:artwork.$id" ng-options-disabled="a.deleted == true for a in artworkArr">
+						<option value="">Select artwork</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group form-group-sm">
+				<label for="artwork4" class="col-sm-2 control-label">Artwork 4</label>
+				<div class="col-sm-10">
+					<select id="artwork4" name="artwork4" class="form-control" ng-model="artwork.assets[3]" ng-change="saveSelect(3)" ng-options="a.id as a.name for a in artworkArr |  arrayWithoutSelf:artwork.$id" ng-options-disabled="a.deleted == true for a in artworkArr">
+						<option value="">Select artwork</option>
+					</select>
+				</div>
+			</div>
+		</span>
+
+
+		<span ng-if="artwork.stitched !== 'yes'">
+			<div class="form-group form-group-sm">
+				<!--ng-options-disabled="a.deleted == true for a in assetArr"-->
+				<label for="asset1" class="col-sm-2 control-label">Asset 1</label>
+				<div class="col-sm-10">
+					<select id="asset1" name="asset1" class="form-control" ie-select-fix="artwork.assets[0]" ng-model="artwork.assets[0]" ng-change="saveSelect(0)" ng-options="a.id as a.name for a in assetArr" ng-options-disabled="a.deleted == true for a in assetArr">
+						<option value="">Select asset file</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group form-group-sm">
+				<label for="asset2" class="col-sm-2 control-label">Asset 2</label>
+				<div class="col-sm-10">
+					<select id="asset2" name="asset2" class="form-control" ie-select-fix="artwork.assets[1]" ng-model="artwork.assets[1]" ng-change="saveSelect(1)" ng-options="a.id as a.name for a in assetArr" ng-options-disabled="a.deleted == true for a in assetArr">
+						<option value="">Select asset file</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group form-group-sm">
+				<label for="asset3" class="col-sm-2 control-label">Asset 3</label>
+				<div class="col-sm-10">
+					<select id="asset3" name="asset3" class="form-control" ie-select-fix="artwork.assets[2]" ng-model="artwork.assets[2]" ng-change="saveSelect(2)" ng-options="a.id as a.name for a in assetArr" ng-options-disabled="a.deleted == true for a in assetArr">
+						<option value="">Select asset file</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group form-group-sm">
+				<label for="asset4" class="col-sm-2 control-label">Asset 4</label>
+				<div class="col-sm-10">
+					<select id="asset4" name="asset4" class="form-control" ie-select-fix="artwork.assets[3]" ng-model="artwork.assets[3]" ng-change="saveSelect(3)" ng-options="a.id as a.name for a in assetArr" ng-options-disabled="a.deleted == true for a in assetArr">
+						<option value="">Select asset file</option>
+					</select>
+				</div>
+			</div>
+		</span>
+		
+
+		
+		<div class="form-group form-group-sm">
+			<label for="notes" class="col-sm-2 control-label">Notes</label>
+			<div class="col-sm-10">
+				<textarea id="notes" class="form-control" ng-model="artwork.notes" ng-change="artwork.$save(notes)">{{asset.notes}}</textarea>
+			</div>
+		</div>
+		
+		<div class="form-group form-group-sm" ng-show="editmode == true">
+			<label for="deleted" class="col-sm-2 control-label">Archived</label>
+			<div class="col-sm-10">
+				<checkbox  id="deleted" name="deleted" ng-model="artwork.deleted" class="btn-normal checkbox-form-control" ng-change="artwork.$save(deleted)"></checkbox>
+			</div>
+		</div>	
+		
+		<div class="form-group form-group-sm">
+			<div class="col-sm-10 pull-right">
+				<button class="btn btn-default btn-sm" role="button" ng-click="create(artwork)" ng-disabled="!artwork.name || !artwork.path" type="submit" ng-show="editmode == false">Create</button>
+			</div>
+			<div class="col-sm-10 pull-right" ng-show="editmode == true">
+				<a class="btn btn-default btn-sm" href="#/artwork/view/{{artwork.id}}" role="button">View</a>
+			</div>
+			<!-- div class="col-sm-10 pull-right" ng-show="editmode == true">
+				<a class="btn btn-default btn-sm" href="#/product_category/{{product_category.id}}" role="button">View</a>
+			</div -->
+		</div>
+		
+	</div>
+	</form>
+</div>
