@@ -25,6 +25,10 @@ git clone git@codebasehq.com:tms/mcds-digital-screens-schedule-tool/schedule-too
 cd schedule-tool
 ```
 
+### Git
+
+$ git config --global credential.helper osxkeychain
+
 ### Install Dependencies
 
 We have two kinds of dependencies in this project: tools and angular framework code.  The tools help
