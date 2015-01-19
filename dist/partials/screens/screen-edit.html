@@ -1,9 +1,7 @@
 <div class="container-fluid">
 <form novalidate class="simple-form css-form" ng-cloak>
 	<div class="col-md-6 form-horizontal">
-		<screen-title name="{{configArr.name}}" project="project" orientation={{configArr.orientation}} id="{{thisscreen.$id}}" screens="configArr.screens"></screen-title>
-
-		<p>Test id: {{thisscreen.$id}}</p>
+		<screen-title name="{{configArr.name}}" project="project" orientation={{configArr.orientation}} id="{{thisscreen.id}}" fnGetScreen="getScreen" screen="thisscreen"></screen-title>
 
 		<div class="form-group form-group-sm">
 			<label for="repeat" class="col-sm-2 control-label">Repeat</label>

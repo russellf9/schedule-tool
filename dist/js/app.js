@@ -714,6 +714,7 @@ scheduleServices.factory('globalFuncs', ['Blueprint', function(Blueprint) {
 
     //(for production)
         productionUrl = 'https://mcd-dmb-schedule-live.firebaseio.com',
+        f9Url = 'https://schedule-tool.firebaseio.com',
 
         isDev = false,
 
@@ -723,11 +724,11 @@ scheduleServices.factory('globalFuncs', ['Blueprint', function(Blueprint) {
 
     return {
         getFirebaseUrl: function() {
-            var url = devUrl;
+            var url = f9Url;
             switch (mode) {
                 case 'devUrl':
                 {
-                    url = devUrl;
+                    url = f9Url;
                     break;
                 }
                 case 'productionUrl':
@@ -1549,12 +1550,13 @@ tool.directive('productDisplay', [function() {
  * Performs various operations on the project data client-side
  */
 
-scheduleServices.factory('ProjectSVC', ['DaysSVC', 'fbutil', '$log', 'globalFuncs', 'FirebaseSVC', '$firebase', 'ScreenSVC', '$q', '_', 'projectList',
-    function(DaysSVC, fbutil, $log, globalFuncs, FirebaseSVC, $firebase, ScreenSVC, $q, _, projectList) {
+scheduleServices.factory('ProjectSVC', ['DaysSVC', 'fbutil', '$log', 'globalFuncs', 'FirebaseSVC', '$firebase', 'ScreenSVC', '$q', '_', 'projectList', 'artworkList',
+    function(DaysSVC, fbutil, $log, globalFuncs, FirebaseSVC, $firebase, ScreenSVC, $q, _, projectList, artworkList) {
 
         var projects = projectList,
             currentProject,
             timeSlots = globalFuncs.getTimeSlots(),
+            artworks,
 
             /**
              * A utility which returns the default day_parts object
@@ -1570,7 +1572,6 @@ scheduleServices.factory('ProjectSVC', ['DaysSVC', 'fbutil', '$log', 'globalFunc
                 }
                 return {day_parts: day_parts};
             };
-
         return {
 
             /**
@@ -1580,6 +1581,26 @@ scheduleServices.factory('ProjectSVC', ['DaysSVC', 'fbutil', '$log', 'globalFunc
             setCurrentProject: function(project) {
                 currentProject = project;
             },
+
+            getArtworks : function() {
+
+                var deferred = $q.defer();
+                artworkList.$loaded().then(function(data) {
+
+                    //1 as object
+
+                    if (data) {
+                        deferred.resolve(data);
+                    }
+
+                    artworks = data;
+                    // TODO -
+                    // reject(error);
+                });
+                return deferred.promise;
+            },
+
+
             /**
              * Creates a object contains a moment date for each day of the campaign
              * @param project
@@ -1741,7 +1762,7 @@ scheduleServices.factory('ProjectSVC', ['DaysSVC', 'fbutil', '$log', 'globalFunc
              * @returns {string[]}
              */
             getProjectHeaders: function(project) {
-                return ['Name', 'id', 'Date Created', 'Start Date', 'End Date', 'Deleted', 'Notes'];
+                return ['Project Name', 'Start Date', 'End Date', 'Screen Configuration Name', 'Screen Orientation', 'TMS artwork name', 'TMS artwork ID', 'Stock Code'];
             },
 
             /**
@@ -1759,49 +1780,76 @@ scheduleServices.factory('ProjectSVC', ['DaysSVC', 'fbutil', '$log', 'globalFunc
              * @param project
              */
             getProjectData: function(project) {
+
+                console.log('A artworks: ', artworks);
+
+                artworks.$loaded().then(function(data) {
+                    console.log('B artworks: ', data);
+                });
+
+
                 var array = [],
                     obj = {},
+                    config = {},
                     configurations = {},
                     screens = {},
                     configuration_names = [],
                     screen_notes = [],
                     artwork = [],
+
+
                 // need to lose the opening `-` in the string,
                     removeInitialChar = function(value) {
                         return String(value).substring(1);
+                    },
+                    getArtwork = function(id) {
+                        return _.findByValue(artworks, 'id', id);
+                    },
+                    getArtworkName = function(id) {
+                        var artwork =  getArtwork(id);
+                        // bit messy here! ( should really wait for the list to properly load!
+                        if (artwork && artwork[0] && artwork[0].hasOwnProperty('name')) {
+                            console.log('artwork: ',artwork[0]);
+                            console.log('artwork: ',artwork[0].name);
+                            return artwork[0].name;
+                        } else if (artwork && artwork.hasOwnProperty('name')){
+                            return artwork.name;
+                        }
                     };
+
                 // create the data explicitly
                 obj.name = project.name;
-                if (String(project.id)[0] === '-') {
-                    obj.project_id = removeInitialChar(project.id);
-                    // as excel interprets this as a minus symbol
-                } else {
-                    obj.project_id = String(project.id);
-                }
-                obj.date_create = new Date(project.date_create).toDateString();
                 obj.date_start = new Date(project.date_start).toDateString();
                 obj.date_end = new Date(project.date_end).toDateString();
-                obj.deleted = String(project.deleted);
-                obj.notes = String(project.notes);
 
 
                 // objects in the following formats will work:
                 ///{a: 1, b:2}, {a: ['russell'], b: ['grace', 'russell']}, {a: [['russell'],['russell']]}
                 array.push(obj);
 
-                array.push(configuration_names);
+                //array.push(configuration_names);
+                //
+                //array.push(artwork);
+                // artwork.name
 
-                array.push(artwork);
+                // artworks.$getRecord(day_part.artwork_id).screen_code
 
                 angular.forEach(project.configurations, function(configuration, key) {
-                    configuration_names[key] = configuration.name + ' ' + configuration.orientation;
+                    var configName = configuration.name,
+                        orientation = configuration.orientation;
 
                     angular.forEach(configuration.screens, function(screen, screenKey) {
                         angular.forEach(screen.days, function(day, dayKey) {
                             angular.forEach(day.day_parts, function(day_part, dayPartKey) {
-                                if (day_part.hasOwnProperty('artwork_id') && day_part.artwork_id !== '') {
-                                    artwork[key] = removeInitialChar(day_part.artwork_id);
-                                }
+                                array.push({
+                                    a: '',
+                                    b: '',
+                                    c: '',
+                                    name: configName,
+                                    orientation: orientation,
+                                    artworkName: getArtworkName(day_part.artwork_id),
+                                    artworkId: removeInitialChar(day_part.artwork_id)
+                                });
                             });
                         });
                     });
@@ -1833,7 +1881,7 @@ scheduleServices.factory('ProjectSVC', ['DaysSVC', 'fbutil', '$log', 'globalFunc
             },
 
 
-            addDays : function(dateOne, days) {
+            addDays: function(dateOne, days) {
                 var momentOne = moment.utc(dateOne).startOf('day'),
                     newDate = momentOne.add(days, 'days');
                 return new Date(newDate.toDate()).getTime();
@@ -2877,14 +2925,18 @@ scheduleControllers.controller('ProjectEditCtrl', ['$scope', '$log', '$routePara
 
 'use strict';
 
-scheduleControllers.controller('ProjectsListCtrl', ['$scope', '$firebase', '$filter', 'globalFuncs',
-    function($scope, $firebase, $filter, globalFuncs) {
+scheduleControllers.controller('ProjectsListCtrl', ['$scope', '$firebase', '$filter', 'globalFuncs', 'ProjectSVC',
+    function($scope, $firebase, $filter, globalFuncs, ProjectSVC) {
 
         $scope.projects = globalFuncs.getProjects($scope, $firebase);
 
         $scope.screen_products = [];
 
-        console.log('B hi from the ProjectsListCtrl!');
+        console.log('\n**21:19 - ProjectsListCtrl!**');
+
+        ProjectSVC.getArtworks().then(function(data) {
+            console.log('\n**art: ', data);
+        });
 
     }]);
 
@@ -2896,7 +2948,7 @@ scheduleControllers.controller('ProjectDetailCtrl', ['$scope', '$log', '$firebas
         console.log('\n****    ProjectDetailCtrl    ****\n\n');
 
         //get artworks for dropdowns
-        var  artworkSync = globalFuncs.getArtworksArray($scope, $firebase),
+        var artworkSync = globalFuncs.getArtworksArray($scope, $firebase),
 
         //get project details
             projectSync = globalFuncs.getProject($scope, $firebase, $routeParams);
@@ -2980,7 +3032,6 @@ scheduleControllers.controller('ProjectDetailCtrl', ['$scope', '$log', '$firebas
             console.log('day', day, 'slot: ', slot, ' | timeslot: ', timeslot, ' | config: ', config);
 
 
-
             // will have to do the following
             // 1. create a new screen object ( this will be automatic prior to editing ) - OK done
 
@@ -3010,12 +3061,15 @@ scheduleControllers.controller('ProjectDetailCtrl', ['$scope', '$log', '$firebas
          */
         $scope.evaluateScreenIsDisabled = function(screenId, day, slot, timeslot, config) {
 
-            if (!screenId || screenId === ''){
+            if (!screenId || screenId === '') {
                 return false;
             }
 
             var screen = $scope.getScreen(screenId),
+                project;
+            if (screen) {
                 project = screen.projects[0];
+            }
 
             /// configId: 0, day: 0, projectId: "-JfSx1yNB5DLjzQUYQh2", slot: 1, timeslot: 1
             return !(project.configId === config && project.day === day && project.slot === slot && project.timeslot === timeslot);
@@ -3390,24 +3444,49 @@ tool.directive('screenTitle', [function() {
         scope: {
             name: '@',
             orientation: '@',
-            project: '=',
             id: '@',
-            screens: '='
+            screens: '=',
+            screen: '=',
+            project: '='
         },
         controller: function($scope) {
+            $scope.getScreenProject = function() {
+                if (!$scope.screen || !$scope.screen.projects) {
+                    return undefined;
+                }
+                return $scope.screen.projects[0];
+            };
+            $scope.getConfigurationName = function() {
+                if ($scope.screen  && $scope.screen.projects && $scope.project && $scope.project.configurations) {
+                    var screenProject = $scope.screen.projects[0],
+                        configuration = $scope.project.configurations[screenProject.configId],
+                        screens = $scope.project.configurations[screenProject.configId].screens;
+                           // has the side-effect of setting the len property!
+                    $scope.length = screens.length;
+                    $scope.ready = true;
+                    return configuration.name;
+                } else {
+                    return '';
+                }
+            };
+            $scope.getConfigurationOrientation = function() {
+                if ($scope.screen  && $scope.screen.projects && $scope.project && $scope.project.configurations) {
+                    var screenProject = $scope.screen.projects[0],
+                        configuration = $scope.project.configurations[screenProject.configId];
+                    return configuration.orientation;
+                } else {
+                    return '';
+                }
+            };
         },
         link: {
             post: function(scope, elem, attr) {
                 // have to watch the update to the attribute as it's value relies on the `interpolation`
                 scope.$watch('id', function(value) {
-                    if (value) {
-                        scope.screen = Number(value) + 1;
+                    if (value) {scope.screenId = Number(value) + 1;
                     }
                 });
-                scope.$watch('project', function(value) {
-                    if (value) {
-                        console.log('config: ', value)
-                    }
+                scope.$watch('screen', function(value) {
                 });
             }
         },
@@ -3650,6 +3729,9 @@ tool.directive('ieSelectFix', [
 
 /**
  * A simple directive to use the browser history to implement `back` behaviour
+ *
+ * Usage:
+ *  <a class="btn btn-default btn-sm" back-button role="button">Back</a>
  */
 
 tool.directive('backButton', ['$window', function($window) {

@@ -7,7 +7,7 @@ scheduleControllers.controller('ProjectsListCtrl', ['$scope', '$firebase', '$fil
 
         $scope.screen_products = [];
 
-        console.log('\n**ProjectsListCtrl!**');
+        console.log('\n**21:19 - ProjectsListCtrl!**');
 
         ProjectSVC.getArtworks().then(function(data) {
             console.log('\n**art: ', data);

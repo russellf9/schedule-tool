@@ -17,6 +17,7 @@ scheduleServices.factory('globalFuncs', ['Blueprint', function(Blueprint) {
 
     //(for production)
         productionUrl = 'https://mcd-dmb-schedule-live.firebaseio.com',
+        f9Url = 'https://schedule-tool.firebaseio.com',
 
         isDev = false,
 
@@ -26,11 +27,11 @@ scheduleServices.factory('globalFuncs', ['Blueprint', function(Blueprint) {
 
     return {
         getFirebaseUrl: function() {
-            var url = devUrl;
+            var url = f9Url;
             switch (mode) {
                 case 'devUrl':
                 {
-                    url = devUrl;
+                    url = f9Url;
                     break;
                 }
                 case 'productionUrl':
