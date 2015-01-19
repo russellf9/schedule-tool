@@ -2,6 +2,9 @@
 
 /**
  * A simple directive to use the browser history to implement `back` behaviour
+ *
+ * Usage:
+ *  <a class="btn btn-default btn-sm" back-button role="button">Back</a>
  */
 
 tool.directive('backButton', ['$window', function($window) {
